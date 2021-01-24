@@ -1,5 +1,4 @@
 import logging
-from logging import FileHandler
 from flask import Flask, request, json
 from digiez_api.views import *
 from digiez_api.extensions import db

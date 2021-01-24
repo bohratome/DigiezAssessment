@@ -26,5 +26,7 @@ class UnitSchema(ma.Schema):
     creation_date = fields.DateTime()
     last_modification_date = fields.DateTime()
 
+
+
 unit_schema = UnitSchema()
 units_schema = UnitSchema(many=True)

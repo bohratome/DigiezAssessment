@@ -20,12 +20,12 @@ def test_api_get_mall_should_return_404_if_mall_not_found(client):
 
 def test_api_create_mall_should_return_json_mall(client):
     # Given
-    account = {'name': 'NewMall'}
+    mall = {'name': 'NewMall'}
 
     # When
     res = client.post(
         url_for('api_malls.get_mall'),
-        data=json.dumps(account)
+        data=json.dumps(mall)
     )
     data = res.json
 

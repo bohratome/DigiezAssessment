@@ -19,6 +19,7 @@ class Mall(db.Model, BaseModel):
         self.address = address
         self.account_id = account_id
 
+
 class MallSchema(ma.Schema):
     id = fields.Integer()
     name = fields.String(required=True)
@@ -26,6 +27,7 @@ class MallSchema(ma.Schema):
     address = fields.String(required=False)
     creation_date = fields.DateTime()
     last_modification_date = fields.DateTime()
+
 
 mall_schema = MallSchema()
 malls_schema = MallSchema(many=True)

@@ -4,6 +4,7 @@ from digiez_api.models import *
 
 api_units = Blueprint('api_units', __name__, url_prefix='/api/units')
 
+
 @api_units.route('', methods=['GET'])
 def get_units():
     """
