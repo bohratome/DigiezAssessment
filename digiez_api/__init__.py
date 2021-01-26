@@ -11,7 +11,6 @@ def create_app(config_module):
     # Init DB
     db.init_app(app_)
     # Blueprints
-    # TODO: automate blueprint loading ? (for loop with package attr)
     app_.register_blueprint(api_accounts.api_accounts)
     app_.register_blueprint(api_malls.api_malls)
     app_.register_blueprint(api_units.api_units)
