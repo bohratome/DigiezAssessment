@@ -5,7 +5,7 @@ from . base_model import BaseModel, now
 
 class Account(db.Model, BaseModel):
     __tablename__ = 'accounts'
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String(150), unique=True, nullable=False)
     phone = db.Column(db.String(12), unique=False, nullable=True)
     malls = db.relationship('Mall')
