@@ -5,7 +5,7 @@ from . base_model import BaseModel, now
 
 class Unit(db.Model, BaseModel):
     __tablename__ = 'units'
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String(150), unique=True, nullable=False)
     manager = db.Column(db.String(150), unique=False, nullable=True)
     mall_id = db.Column(db.Integer, db.ForeignKey("malls.id",
