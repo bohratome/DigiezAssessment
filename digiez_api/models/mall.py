@@ -5,7 +5,7 @@ from . base_model import BaseModel, now
 
 class Mall(db.Model, BaseModel):
     __tablename__ = 'malls'
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String(150), unique=True, nullable=False)
     address = db.Column(db.String(300), unique=False, nullable=True)
     account_id = db.Column(db.Integer, db.ForeignKey("accounts.id",
