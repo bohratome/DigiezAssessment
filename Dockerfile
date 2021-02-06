@@ -18,7 +18,7 @@ COPY . /app
 
 RUN mkdir /data
 RUN chmod go+w /data
-RUN  sqlite3 /data/damtest.db < data/dump.sql
+RUN  sqlite3 app.db < data/dump.sql
 
 RUN chmod go+w /app
 RUN chmod  go+w /data/damtest.db

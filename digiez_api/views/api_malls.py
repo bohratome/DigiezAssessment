@@ -16,7 +16,14 @@ def get_malls():
             200:
                     description: List of malls
     """
-    malls = Mall.query.all()
+    page = request.args.get('p')
+    query = Mall.query
+    if page:
+        query = query.order_by(Mall.id).paginate(
+            int(page), per_page=20, error_out=False)
+        malls = query.items
+    else:
+        malls = query.all()
     result = malls_schema.dump(malls)
     return {'status': 'success', 'data': result}, 200
 

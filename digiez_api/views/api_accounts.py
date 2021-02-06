@@ -16,9 +16,17 @@ def get_accounts():
             200:
                     description: List of accounts
     """
-    accounts = Account.query.all()
+    page = request.args.get('p')
+    query = Account.query
+    if page:
+        query = query.order_by(Account.id).paginate(
+            int(page), per_page=20, error_out=False)
+        accounts = query.items
+    else:
+        accounts = query.all()
     accounts = accounts_schema.dump(accounts)
     return {'status': 'success', 'data': accounts}, 200
+
 
 @api_accounts.route('/<account_id>', methods=['GET'])
 def get_account(account_id):
@@ -119,3 +127,4 @@ def delete_account(account_id):
     if not deleted_count:
         abort(404)
     return '', 204
+

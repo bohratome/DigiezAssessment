@@ -16,7 +16,14 @@ def get_units():
             200:
                     description: List of units
     """
-    units = Unit.query.all()
+    page = request.args.get('p')
+    query = Unit.query
+    if page:
+        query = query.order_by(Unit.id).paginate(
+            int(page), per_page=20, error_out=False)
+        units = query.items
+    else:
+        units = query.all()
     units = units_schema.dump(units)
     return {'status': 'success', 'data': units}, 200
 
