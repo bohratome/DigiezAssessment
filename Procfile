@@ -1,2 +1,2 @@
 web: gunicorn fbapp:app
-init: FLASK_APP=run.py flask init-db
+init: FLASK_APP=runserver.py flask init-db
