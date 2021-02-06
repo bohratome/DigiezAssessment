@@ -1,8 +1,8 @@
 import os
 from dotenv import load_dotenv
 
-load_dotenv('./etc/.env_{}'.format('dev'))
-# load_dotenv('./etc/.env_{}'.format(os.environ.get('CONFIG_ENV')))
+#load_dotenv('./etc/.env_{}'.format('dev'))
+load_dotenv('./etc/.env_{}'.format(os.environ.get('CONFIG_ENV')))
 
 class ConfigEnv(object):
 
