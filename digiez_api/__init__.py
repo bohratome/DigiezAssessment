@@ -1,6 +1,7 @@
 import logging
 from flask import Flask, request, json
 from digiez_api.views import *
+from digiez_api.oop_views import *
 from digiez_api.extensions import db
 
 
@@ -13,10 +14,14 @@ def create_app(config_module):
     db.init_app(app_)
     # Blueprints
     app_.register_blueprint(web.web)
-    app_.register_blueprint(api_accounts.api_accounts)
+    # Account is done with another approach:
+    # Http's methods are defined in a class thank to flask-restful package
+    # app_.register_blueprint(api_accounts.api_accounts)
     app_.register_blueprint(api_malls.api_malls)
     app_.register_blueprint(api_units.api_units)
     app_.register_blueprint(docs.docs)
+    #OOP VIEWS
+    app_.register_blueprint(oop_api_accounts.api_accounts)
     return app_
 
 
