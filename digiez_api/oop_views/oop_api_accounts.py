@@ -8,40 +8,25 @@ api = Api(api_accounts)
 
 
 class AccountList(Resource):
-    def get(self):
+
+    def get(self, account_id=None):
         page = request.args.get('p')
         query = Account.query
-        if page:
-            query = query.order_by(Account.id).paginate(
-                int(page), per_page=20, error_out=False)
-            accounts = query.items
+        if not account_id:
+            if page:
+                query = query.order_by(Account.id).paginate(
+                    int(page), per_page=20, error_out=False)
+                accounts = query.items
+            else:
+                accounts = query.all()
+            accounts = accounts_schema.dump(accounts)
+            return {'status': 'success', 'data': accounts}, 200
         else:
-            accounts = query.all()
-        accounts = accounts_schema.dump(accounts)
-        return {'status': 'success', 'data': accounts}, 200
-
-    def get(self, account_id):
-        """
-        Get a specific account
-        ---
-        tags:
-                - accounts
-        parameters:
-                -   in: path
-                    required: true
-                    name: account_id
-                    type: integer
-        responses:
-                200:
-                        description: Account found for given id
-                404:
-                        description: No Account found for given id
-        """
-        account = Account.query.get(account_id)
-        if not account:
-            abort(404)
-        result = account_schema.dump(account)
-        return {'status': 'success', 'data': result}, 200
+            account = Account.query.get(account_id)
+            if not account:
+                abort(404)
+            result = account_schema.dump(account)
+            return {'status': 'success', 'data': result}, 200
 
     def post(self):
         """
@@ -65,7 +50,6 @@ class AccountList(Resource):
         account.save()
         result = account_schema.dump(account)
         return {"status": 'success', 'data': result}, 201
-
 
     def put(self, account_id):
         """
