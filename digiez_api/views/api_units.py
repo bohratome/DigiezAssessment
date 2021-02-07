@@ -47,9 +47,9 @@ def create_unit():
     unit = Unit.query.filter_by(name=data['name']).first()
     if unit:
         return {'message': 'Unit already exists'}, 400
-    unit = Account(**request.get_json())
+    unit = Unit(**request.get_json())
     unit.save()
-    result = account_schema.dump(unit)
+    result = unit_schema.dump(unit)
     return {"status": 'success', 'data': result}, 201
 
 
@@ -71,10 +71,10 @@ def get_unit(unit_id):
             404:
                     description: No Unit found for given id
     """
-    unit = Account.query.get(unit_id)
+    unit = Unit.query.get(unit_id)
     if not unit:
         abort(404)
-    result = account_schema.dump(unit)
+    result = unit_schema.dump(unit)
     return {'status': 'success', 'data': result}, 200
 
 

@@ -99,4 +99,4 @@ class AccountList(Resource):
             abort(404)
         return '', 204
 
-api.add_resource(AccountList, '/', '/<string:account_id>')
+api.add_resource(AccountList, '', '/<string:account_id>')
