@@ -6,9 +6,9 @@ setup(
     description='REST API implementation in flask framework',
     author='Moncif EL KASSIMI',
     packages=[
-                'digiez_api',
-                'digiez_api/models',
-                'digiez_api/views',
+                'myapp',
+                'myapp/models',
+                'myapp/views',
     ],
     include_package_data=True,
     zip_safe=False,

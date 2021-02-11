@@ -1,1 +1,1 @@
-web: gunicorn digiez_api:app
+web: gunicorn myapp:app

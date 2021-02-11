@@ -1,6 +1,6 @@
 import pytest
-from digiez_api import db as db_, create_app
-from digiez_api.config import EnvConfig
+from myapp import db as db_, create_app
+from myapp.config import EnvConfig
 
 @pytest.fixture(scope='session')
 def app(request):
