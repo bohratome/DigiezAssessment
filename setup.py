@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(
-    name='Digiez',
+    name='MoncifApp',
     version='1.0',
     description='REST API implementation in flask framework',
     author='Moncif EL KASSIMI',

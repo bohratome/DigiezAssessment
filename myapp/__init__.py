@@ -1,8 +1,8 @@
 import logging
 from flask import Flask, request, json
-from digiez_api.views import *
-from digiez_api.oop_views import *
-from digiez_api.extensions import db
+from myapp.views import *
+from myapp.oop_views import *
+from myapp.extensions import db
 
 
 def create_app(config_module):
@@ -26,7 +26,7 @@ def create_app(config_module):
 
 
 # Create Flask app
-app = create_app('digiez_api.config.ConfigEnv')
+app = create_app('myapp.config.ConfigEnv')
 
 
 @app.before_first_request

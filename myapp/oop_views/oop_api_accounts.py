@@ -1,6 +1,6 @@
 from flask import Flask, abort, Blueprint, request
 from flask_restful import Resource, Api
-from digiez_api.models import *
+from myapp.models import *
 
 
 api_accounts = Blueprint('api_accounts', __name__, url_prefix='/api/accounts')

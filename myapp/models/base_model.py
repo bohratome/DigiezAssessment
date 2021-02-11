@@ -1,6 +1,6 @@
 import datetime
 from flask import current_app
-from digiez_api.extensions import db
+from myapp.extensions import db
 
 
 def now():

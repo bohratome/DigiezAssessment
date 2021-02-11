@@ -1,5 +1,5 @@
 from marshmallow import fields
-from digiez_api.extensions import db, ma
+from myapp.extensions import db, ma
 from . base_model import BaseModel, now
 
 

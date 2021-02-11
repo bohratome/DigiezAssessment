@@ -1,6 +1,6 @@
 from flask import Flask
 from optparse import OptionParser
-from digiez_api import app
+from myapp import app
 
 
 if __name__ == "__main__":

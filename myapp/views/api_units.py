@@ -1,5 +1,6 @@
 from flask import abort, request, Blueprint
-from digiez_api.models import *
+from myapp.models import *
+
 
 
 api_units = Blueprint('api_units', __name__, url_prefix='/api/units')
